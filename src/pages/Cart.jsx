@@ -8,7 +8,7 @@ import { mobile } from "../responsive";
 import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
@@ -168,6 +168,11 @@ const Cart = () => {
     setStripeToken(token);
   };
 
+  const navigate = useNavigate()
+const handleHome=()=>{
+  navigate("/")
+}
+
   useEffect(() => {
     const makeRequest = async () => {
       try {
@@ -189,7 +194,7 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <TopButton onClick={handleHome}>CONTINUE SHOPPING</TopButton>
           <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
@@ -258,6 +263,7 @@ const Cart = () => {
               stripeKey={KEY}
             >
               <Button>CHECKOUT NOW</Button>
+             
             </StripeCheckout>
           </Summary>
         </Bottom>

@@ -34,6 +34,7 @@ import {
     position: relative;
     &:hover ${Info}{
       opacity: 1;
+      
     }
   `;
   
@@ -48,6 +49,8 @@ import {
   const Image = styled.img`
     height: 75%;
     z-index: 2;
+    
+
   `;
   
   const Icon = styled.div`
@@ -63,6 +66,9 @@ import {
     &:hover {
       background-color: #e9f5f5;
       transform: scale(1.1);
+      border-radius: 10px;
+      transform: scale(1.08);
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
   `;
   
@@ -80,9 +86,9 @@ import {
             <SearchOutlined />
             </Link>
           </Icon>
-          <Icon>
-            <FavoriteBorderOutlined />
-          </Icon>
+          {/* <Icon> */}
+            {/* <FavoriteBorderOutlined /> */}
+          {/* </Icon> */}
         </Info>
       </Container>
     );

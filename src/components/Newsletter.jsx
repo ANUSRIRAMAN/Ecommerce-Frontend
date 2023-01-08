@@ -9,6 +9,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: #000036;
+  color: gold;
 `;
 const Title = styled.h1`
   font-size: 70px;
@@ -48,7 +50,7 @@ const Button = styled.button`
 const Newsletter = () => {
   return (
     <Container>
-      <Title>Newsletter</Title>
+      <Title>SUBSCRIBE</Title>
       <Desc>Get timely updates from your favorite products.</Desc>
       <InputContainer>
         <Input placeholder="Your email" />

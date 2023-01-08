@@ -126,6 +126,8 @@ import Logout from "./logout";
 
 const Container = styled.div`
   height: 60px;
+  background:#000036;
+  color:gold;
   ${mobile({ height: "50px" })}
 `;
 
@@ -202,20 +204,20 @@ const user = useSelector((state) => state.user.currentUser);
       <Wrapper>
         <Left>
           <Language>EN</Language>
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
+          {/* <SearchContainer> */}
+            {/* <Input placeholder="Search" /> */}
+            {/* <Search style={{ color: "gray", fontSize: 16 }} /> */}
+          {/* </SearchContainer> */}
         </Left>
         <Center>
-          <Logo>My Store.</Logo>
+          <Link to="/"><Logo style={{color:"gold" , textDecoration:"none !important"}}>My Store.</Logo></Link>
           {/* <button onClick={()=>{handleLogout()}}>logout</button> */}
         </Center>
         <Right>
-        {user ?<></> :<Link to="/register"><MenuItem>REGISTER</MenuItem></Link>}
-       { user? <Logout/>: <MenuItem ><button onClick={handleLogin}>SIGN IN</button></MenuItem>}
+        {user ?<></> :<Link to="/register"><MenuItem style={{color:"gold"}}>REGISTER</MenuItem></Link>}
+       { user? <Logout/>: <MenuItem ><button onClick={handleLogin} style={{background:"black",color:"gold"}}>SIGN IN</button></MenuItem>}
           
-          <Link to="/cart">
+          <Link to="/cart" style={{color:"gold"}}>
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">
               <ShoppingCartOutlined />
