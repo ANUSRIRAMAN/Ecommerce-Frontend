@@ -183,7 +183,10 @@ const handleHome=()=>{
         history.push("/success", {
           stripeData: res.data,
           products: cart, });
-      } catch {}
+          
+      } catch {alert("payment successfull")
+    navigate("/")
+    }
     };
     stripeToken && makeRequest();
   }, [stripeToken, cart.total, history]);
