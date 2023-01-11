@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import Button from '@mui/material/Button';
 function Logout() {
 const navigate = useNavigate();
 
@@ -22,7 +23,7 @@ const Logout = ()=>{
 }
 
   return (
-  <Link to ="/login"> <button className='btn btn-danger'  onClick={()=>Logout()}>Logout</button></Link>
+  <Link to ="/login"> <Button  variant="contained" className='btn btn-danger'  onClick={()=>Logout()}>Logout</Button></Link>
 
   )
 }

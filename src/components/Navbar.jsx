@@ -112,7 +112,7 @@
 // export default Navbar;
 
 
-import { Badge, Button } from "@material-ui/core";
+import { Badge} from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
@@ -121,7 +121,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Logout from "./logout";
-
+import Button from '@mui/material/Button';
 
 
 const Container = styled.div`
@@ -215,7 +215,7 @@ const user = useSelector((state) => state.user.currentUser);
         </Center>
         <Right>
         {user ?<></> :<Link to="/register"><MenuItem style={{color:"gold"}}>REGISTER</MenuItem></Link>}
-       { user? <Logout/>: <MenuItem ><button onClick={handleLogin} style={{background:"black",color:"gold"}}>SIGN IN</button></MenuItem>}
+       { user? <Logout/>: <MenuItem ><Button variant="contained" onClick={handleLogin} style={{background:"black",color:"gold"}}>SIGN IN</Button></MenuItem>}
           
           <Link to="/cart" style={{color:"gold"}}>
           <MenuItem>

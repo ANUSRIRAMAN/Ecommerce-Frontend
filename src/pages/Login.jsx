@@ -236,7 +236,14 @@ import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import TextField from '@mui/material/TextField';
+
+import Button from '@mui/material/Button';
+import {Navigate } from 'react-router-dom';
+
+import { useEffect } from "react";
 
 const Container = styled.div`
   width: 100vw;
@@ -245,7 +252,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+    url("https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
       center;
   background-size: cover;
   display: flex;
@@ -255,14 +262,19 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 25%;
+  height: 45%;
   padding: 20px;
   background-color: white;
   ${mobile({ width: "75%" })}
+  border-radius: 5px;
 `;
 
 const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
+  display: flex;
+ 
+  justify-content : center;
 `;
 
 const Form = styled.form`
@@ -277,19 +289,19 @@ const Input = styled.input`
   padding: 10px;
 `;
 
-const Button = styled.button`
-  width: 40%;
-  border: none;
-  padding: 15px 20px;
-  background-color: teal;
-  color: white;
-  cursor: pointer;
-  margin-bottom: 10px;
-  &:disabled {
-    color: green;
-    cursor: not-allowed;
-  }
-`;
+// const Button = styled.button`
+//   width: 40%;
+//   border: none;
+//   padding: 15px 20px;
+//   background-color: teal;
+//   color: white;
+//   cursor: pointer;
+//   margin-bottom: 10px;
+//   &:disabled {
+//     color: green;
+//     cursor: not-allowed;
+//   }
+// `;
 
 const Links = styled.a`
   margin: 5px 0px;
@@ -312,26 +324,78 @@ const Login = () => {
     e.preventDefault();
     login(dispatch, { username, password });
   };
+
+  // useEffect(() => {
+  //   localStorage.removeItem("accessToken");
+  //   localStorage.removeItem("userid");
+  //   localStorage.removeItem("username");
+  //   localStorage.removeItem("user");
+  //   localStorage.removeItem("persist:root");
+  //   if(!localStorage.getItem("accessToken")){
+        
+  //       alert("logged out successfully")
+       
+  //       window.location.reload(false);
+  //   }
+  // }, [error()]);
+    
+    const clear = ()=>{
+       
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("userid");
+        localStorage.removeItem("username");
+        localStorage.removeItem("user");
+        localStorage.removeItem("persist:root");
+        if(!localStorage.getItem("accessToken")){
+            
+           
+           
+            window.location.reload(false);
+        }
+    
+    
+    }
+
+
+
+
+
   return (
     <Container>
       <Wrapper>
-        <Title>SIGN IN</Title>
+        <Title>SIGN IN</Title><br/>
         <Form>
-          <Input
+        <TextField id="outlined-basic" label="username" variant="outlined" margin="normal"
+          required  onChange={(e) => setUsername(e.target.value)}/>
+          {/* <Input
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
-          />
-          <Input
+          /> */}
+          {/* <Input
             placeholder="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button onClick={handleClick} disabled={isFetching}>
+          /> */}
+
+<TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+          onChange={(e) => setPassword(e.target.value)}
+        /><br/>
+          <Button variant="contained" onClick={handleClick} >
             LOGIN
-          </Button>
-          {error && <Error>Something went wrong...</Error>}
+          </Button><br/>
+          {error && <Error><Link to ="/login"  style={{color:"red"}} onClick={()=>clear()}>invalid credentials Click this if Something went wrong...</Link></Error>}
           
-          <Link to ="/register">CREATE A NEW ACCOUNT</Link>
+          <br/>
+          <Link to ="/register">CREATE A NEW ACCOUNT</Link><br/>
+          {/* <Link to ="/login"   onClick={()=>clear()}>Click this if Something went wrong...</Link> */}
         </Form>
       </Wrapper>
     </Container>

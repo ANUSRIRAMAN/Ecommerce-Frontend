@@ -1,73 +1,42 @@
-// import { Link } from "react-router-dom";
-// import styled from "styled-components";
-// import { mobile } from "../responsive";
-// import axios
-//  from "axios";
-//  import { useNavigate } from "react-router-dom";
-//  import { formik } from "formik";
-//  import { useFormik } from "formik";
-// const Container = styled.div`
-//   width: 100vw;
-//   height: 100vh;
-//   background: linear-gradient(
-//       rgba(255, 255, 255, 0.5),
-//       rgba(255, 255, 255, 0.5)
-//     ),
-//     url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
-//       center;
-//   background-size: cover;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
 
-// const Wrapper = styled.div`
-//   width: 40%;
-//   padding: 20px;
-//   background-color: white;
-//   ${mobile({ width: "75%" })}
-// `;
+// import React from "react";
+// import { useFormik } from "formik";
+// import axios from "axios";
+// import Button from '@mui/material/Button';
+// import { useNavigate } from "react-router-dom";
+// import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
+// import Typography from '@mui/material/Typography';
+// import IconButton from '@mui/material/IconButton';
+// import TextField from '@mui/material/TextField';
+// import SearchIcon from '@mui/icons-material/Search';
+// import { style } from "@mui/system";
 
-// const Title = styled.h1`
-//   font-size: 24px;
-//   font-weight: 300;
-// `;
 
-// const Form = styled.form`
-//   display: flex;
-//   flex-wrap: wrap;
-// `;
 
-// const Input = styled.input`
-//   flex: 1;
-//   min-width: 40%;
-//   margin: 20px 10px 0px 0px;
-//   padding: 10px;
-// `;
+// import Avatar from '@mui/material/Avatar';
+// import Button from '@mui/material/Button';
+// import CssBaseline from '@mui/material/CssBaseline';
+// import TextField from '@mui/material/TextField';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
+// import Link from '@mui/material/Link';
+// import Paper from '@mui/material/Paper';
+// import Box from '@mui/material/Box';
+// import Grid from '@mui/material/Grid';
+// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-// const Agreement = styled.span`
-//   font-size: 12px;
-//   margin: 20px 0px;
-// `;
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-// const Button = styled.button`
-//   width: 40%;
-//   border: none;
-//   padding: 15px 20px;
-//   background-color: teal;
-//   color: white;
-//   cursor: pointer;
-// `;
-// const buttons = styled.button`
-//   width: 40%;
-//   border: none;
-//   padding: 15px 20px;
-//   background-color: teal;
-//   color: white;
-//   cursor: pointer;
-// `;
 
-// const Register = () => {
+
+// import { BrowserRouter, Routes, Route ,Link} from "react-router-dom";
+
+
+
+
+// function Register() {
 //   let navigate = useNavigate();
 //   let formik = useFormik({
 //     initialValues: {
@@ -78,9 +47,9 @@
 //     },
 //     onSubmit: async (values) => {
 //       try{
-// const users = await axios.post(`http://localhost:5000/api/auth/register`,values);
-// alert(users.data.message);     
-// navigate("/")
+// const users = await axios.post(`https://ecombackend-h7m9.onrender.com/api/auth/register`,values);
+// alert("Successfully Registered");     
+// navigate("/login")
 // }
 //       catch(err){
 //         console.log(err);
@@ -88,40 +57,61 @@
      
 //     },
 //   });
-
-
-  // try{
-  //   const users = await axios.post(`http://localhost:5000/api/auth/register`,values);
-  //   alert(users.data.message);     
-  //   navigate("/")
-  //   }
-  //         catch(err){
-  //           console.log(err);
-  //         }
+//   const [open, setOpen] = React.useState(false);
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
+//   const handleToggle = () => {
+//     setOpen(!open);
+//   };
 //   return (
-//     <Container>
-//       <Wrapper>
-//         <Title>CREATE AN ACCOUNT</Title>
-//         <form onSubmit={formik.handleSubmit}>
-//           {/* <Input placeholder="name" />
-//           <Input placeholder="last name" /> */}
-//           <input placeholder="username" value={formik.values.username} onChange={formik.handleChange} />
-//           <input placeholder="email" value={formik.values.email} onChange={formik.handleChange} />
-//           <input placeholder="password" value={formik.values.password} onChange={formik.handleChange}/>
-//           {/* <Input placeholder="confirm password" /> */}
-//           <Agreement>
-//             By creating an account, I consent to the processing of my personal
-//             data in accordance with the <b>PRIVACY POLICY</b>
-//           </Agreement>
-//           <Button type="submit">CREATE</Button><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
-//           <Link to ="/login"><button style={{width:"200px",height:"50px" ,background:"teal", color:"white"}}>Click this to Sign in after registration</button></Link>
-//         </form>
-//       </Wrapper>
-//     </Container>
-//   );
-// };
+//     <div>
+//     <div className="Register" style={
+//       {
+
+//         background:"#334"
+//       }
+//     }>
+//        <Box sx={{ flexGrow: 1 }}>
+//       <AppBar position="static">
+//         <Toolbar style={{background:"#334"}}>
+//           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} >
+//            Ecom registration  
+//           </Typography>
+//           <Button component ={Link} to="/login"variant="contained">Signin</Button>
+//         </Toolbar>
+//       </AppBar>
+//     </Box>
+//    </div>
+// <form onSubmit={formik.handleSubmit}>
+//  {/* <TextField helperText="Please enter your role user or admin use small letter" name="role" value={formik.values.role} onChange={formik.handleChange} id="filled-basic" label="admin/user" variant="filled"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/> */}
+// {/* <TextField helperText="Please enter your role user or admin use small letter" name="role" value={formik.values.role} onChange={formik.handleChange} id="filled-basic" label="admin/user" variant="filled"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/> */}
+
+
+// <TextField  helperText="Please enter username" name="username" type="string" value={formik.values.username} onChange={formik.handleChange} id="filled-basic1" label="Username" variant="filled"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
+
+//  <TextField helperText="Please enter email" name="email" value={formik.values.email} onChange={formik.handleChange} id="filled-basic" label="Email" variant="filled" type="email"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
+
+//  <TextField name="password" value={formik.values.password} onChange={formik.handleChange} id="filled-basic" label="Password" variant="filled" type="password"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
+ 
+//  <Button type="submit" variant="contained"style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}}>Register</Button><br/>
+
+//  </form>
+// </div>
+
+
+// );
+// }
 
 // export default Register;
+
+
+
 
 import React from "react";
 import { useFormik } from "formik";
@@ -129,15 +119,50 @@ import axios from "axios";
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import TextField from '@mui/material/TextField';
+
 import SearchIcon from '@mui/icons-material/Search';
 import { style } from "@mui/system";
 
+
+
+import Avatar from '@mui/material/Avatar';
+
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
+
 import { BrowserRouter, Routes, Route ,Link} from "react-router-dom";
+
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+const theme = createTheme();
+
+
 function Register() {
   let navigate = useNavigate();
   let formik = useFormik({
@@ -154,6 +179,7 @@ alert("Successfully Registered");
 navigate("/login")
 }
       catch(err){
+        alert("Account already exist please try to register with someother credentials")
         console.log(err);
       }
      
@@ -167,45 +193,151 @@ navigate("/login")
     setOpen(!open);
   };
   return (
-    <div>
-    <div className="Register" style={
-      {
+//     <div>
+//     <div className="Register" style={
+//       {
 
-        background:"#334"
-      }
-    }>
-       <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar style={{background:"#334"}}>
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} >
-           Ecom registration  
-          </Typography>
-          <Button component ={Link} to="/login"variant="contained">Signin</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
-   </div>
-<form onSubmit={formik.handleSubmit}>
- {/* <TextField helperText="Please enter your role user or admin use small letter" name="role" value={formik.values.role} onChange={formik.handleChange} id="filled-basic" label="admin/user" variant="filled"
- style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/> */}
-{/* <TextField helperText="Please enter your role user or admin use small letter" name="role" value={formik.values.role} onChange={formik.handleChange} id="filled-basic" label="admin/user" variant="filled"
- style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/> */}
+//         background:"#334"
+//       }
+//     }>
+//        <Box sx={{ flexGrow: 1 }}>
+//       <AppBar position="static">
+//         <Toolbar style={{background:"#334"}}>
+//           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} >
+//            Ecom registration  
+//           </Typography>
+//           <Button component ={Link} to="/login"variant="contained">Signin</Button>
+//         </Toolbar>
+//       </AppBar>
+//     </Box>
+//    </div>
+// <form onSubmit={formik.handleSubmit}>
+//  {/* <TextField helperText="Please enter your role user or admin use small letter" name="role" value={formik.values.role} onChange={formik.handleChange} id="filled-basic" label="admin/user" variant="filled"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/> */}
+// {/* <TextField helperText="Please enter your role user or admin use small letter" name="role" value={formik.values.role} onChange={formik.handleChange} id="filled-basic" label="admin/user" variant="filled"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/> */}
 
 
-<TextField  helperText="Please enter username" name="username" type="string" value={formik.values.username} onChange={formik.handleChange} id="filled-basic1" label="Username" variant="filled"
- style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
+// <TextField  helperText="Please enter username" name="username" type="string" value={formik.values.username} onChange={formik.handleChange} id="filled-basic1" label="Username" variant="filled"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
 
- <TextField helperText="Please enter email" name="email" value={formik.values.email} onChange={formik.handleChange} id="filled-basic" label="Email" variant="filled" type="email"
- style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
+//  <TextField helperText="Please enter email" name="email" value={formik.values.email} onChange={formik.handleChange} id="filled-basic" label="Email" variant="filled" type="email"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
 
- <TextField name="password" value={formik.values.password} onChange={formik.handleChange} id="filled-basic" label="Password" variant="filled" type="password"
- style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
+//  <TextField name="password" value={formik.values.password} onChange={formik.handleChange} id="filled-basic" label="Password" variant="filled" type="password"
+//  style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}} /><br/>
  
- <Button type="submit" variant="contained"style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}}>Register</Button><br/>
+//  <Button type="submit" variant="contained"style={{width:"400px",marginTop:"50px" , marginLeft:"450px"}}>Register</Button><br/>
 
- </form>
-</div>
-
+//  </form>
+// </div>
+<ThemeProvider theme={theme}>
+<Grid container component="main" sx={{ height: '100vh' }}>
+  <CssBaseline />
+  <Grid
+    item
+    xs={false}
+    sm={4}
+    md={7}
+    sx={{
+      backgroundImage: 'url(https://source.unsplash.com/random)',
+      backgroundRepeat: 'no-repeat',
+      backgroundColor: (t) =>
+        t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  />
+  <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+    <Box
+      sx={{
+        my: 8,
+        mx: 4,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+        <LockOutlinedIcon />
+      </Avatar>
+      <Typography component="h1" variant="h5">
+       New user! Register
+      </Typography>
+      <Box component=""  sx={{ mt: 1 }}>
+      <form onSubmit={formik.handleSubmit}>
+      {/* <TextField
+          margin="normal"
+          required
+          fullWidth
+          id="username"
+          label="username"
+          name="username"
+          autoComplete="username"
+          autoFocus
+          value={formik.values.username} onChange={formik.handleChange}
+        /> */}
+        <TextField id="username" label="username" variant="outlined"  margin="normal"
+          required
+          fullWidth
+         name="username"
+         autoFocus
+          value={formik.values.username} onChange={formik.handleChange}
+          type="string"
+          />
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          id="email"
+          label="Email Address"
+          name="email"
+          autoComplete="email"
+          autoFocus
+          value={formik.values.email} onChange={formik.handleChange}
+        />
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+          value={formik.values.password} onChange={formik.handleChange}
+        />
+        {/* <FormControlLabel
+          control={<Checkbox value="remember" color="primary" />}
+          label="Remember me"
+        /> */}
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          Sign Up
+        </Button>
+        </form>
+        <Grid container>
+          <Grid item xs>
+            <Link href="#" to="/login"variant="body2">
+              To Login Page
+            </Link>
+          </Grid>
+          <Grid item>
+            {/* <Link href="#" variant="body2">
+              {"Don't have an account? Sign Up"}
+            </Link> */}
+          </Grid>
+        </Grid>
+        <Copyright sx={{ mt: 5 }} />
+      </Box>
+    </Box>
+  </Grid>
+</Grid>
+</ThemeProvider>
 
 );
 }
